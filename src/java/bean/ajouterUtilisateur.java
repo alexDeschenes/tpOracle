@@ -7,7 +7,9 @@ package bean;
 
 import classe.Membre;
 import classe.MembreUtil;
+import classe.Restaurant;
 import classe.Typemembre;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -41,10 +43,10 @@ public class ajouterUtilisateur {
     public void ajouterMembre()
     {
        
-        MembreUtil.ajouterClient(nomUtil, email, Mdp, Type);
+        MembreUtil.ajouterClient(nomUtil, MdpConf, email, Mdp, Type);
         message = "Le client a bien été ajouté!";
     }
-    public Membre getMembre()
+    public Membre getMembreCon()
     {
         Membre unMem ;
         unMem=MembreUtil.getClientConnexion(nomUtil,Mdp);
@@ -60,21 +62,10 @@ public class ajouterUtilisateur {
         return unMem;
        
     }
-      public void ajoutCommentaire()
+   public void ajoutCommentaire(String Contenu,Date dateCreation,Membre mem,int note,Restaurant resto)
     {
-        Membre unMem ;
-        unMem=MembreUtil.getClientConnexion(nomUtil,Mdp);
-        if(unMem == null)
-        {
-            
-          message = "Aucun membre trouvé";
-        }
-        else
-        {  
-          message = "Le client a été trouvé!";
-        }
-       // return unMem;
-      // 
+        MembreUtil.ajouterCommentaire(Contenu, dateCreation, mem, note, resto);
+        message ="le commentaire a été ajouté";
     }
 
 
@@ -106,6 +97,10 @@ public class ajouterUtilisateur {
   
      public Typemembre getType() {
         return this.Type;
+    }
+    public String getMdpConf()
+    {
+        return this.MdpConf;
     }
 
 }

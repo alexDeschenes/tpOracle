@@ -127,9 +127,15 @@ public class MembreUtil {
     
     
 
-    public void ajouterClient(String nomUtil, String email,String Mdp, Typemembre Type)
+    public void ajouterClient(String nomUtil, String mdpConf, String email,String Mdp, Typemembre Type)
     {
+        if(mdpConf == Mdp)
+        {
+           
+            Transaction tx = null;
+            this.session = HibernateUtil.getSessionFactory().openSession();
         
+        try{  
             Membre SMembre = new Membre();
             SMembre.setNomutil(nomUtil);
             SMembre.setEmail(email);
@@ -139,13 +145,9 @@ public class MembreUtil {
            SMembre.setTypemembre(Type);
            SMembre.setTypecuisinePref(1);
                   
-            Transaction tx = null;
-            this.session = HibernateUtil.getSessionFactory().openSession();
-        
-        try{    
             tx = session.beginTransaction();
 			
-	    // l'ajout ne se fait pas car il reste des champs null qui ne doivent pas l'être
+	
             
             session.saveOrUpdate(SMembre);
             tx.commit();
@@ -157,6 +159,7 @@ public class MembreUtil {
         }
         
         this.session.close();
+        }
         
     }
      public Membre getClientConnexion(String nomUtil,String Mdp)
