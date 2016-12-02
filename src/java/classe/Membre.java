@@ -2,7 +2,10 @@ package classe;
 // Generated 2016-11-30 12:27:17 by Hibernate Tools 4.3.1
 
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -102,12 +105,14 @@ public class Membre  implements java.io.Serializable {
     public void setRestaurants(Set restaurants) {
         this.restaurants = restaurants;
     }
-    public Set getCommentaires() {
-        return this.commentaires;
+    public Commentaire getCommentaires(int index) {
+        List<Commentaire> listCommentaire = new ArrayList(this.commentaires);
+         return listCommentaire.get(index);
+                 
     }
     
-    public void setCommentaires(Set commentaires) {
-        this.commentaires = commentaires;
+    public void setCommentaires(Commentaire commentaires) {
+        this.commentaires.add(commentaires);
     }
     public Set getTypecuisines() {
         return this.typecuisines;
@@ -115,6 +120,12 @@ public class Membre  implements java.io.Serializable {
     
     public void setTypecuisines(Set typecuisines) {
         this.typecuisines = typecuisines;
+    }
+    public void supCommentaire(int index)
+    {
+        List<Commentaire> listCommentaire = new ArrayList(this.commentaires);
+         listCommentaire.remove(index);
+        
     }
 
 

@@ -47,7 +47,7 @@ public class ajouterUtilisateur {
     public Membre getMembre()
     {
         Membre unMem ;
-        unMem=MembreUtil.getClient(nomUtil,Mdp);
+        unMem=MembreUtil.getClientConnexion(nomUtil,Mdp);
         if(unMem == null)
         {
             
@@ -60,6 +60,23 @@ public class ajouterUtilisateur {
         return unMem;
        
     }
+      public void ajoutCommentaire()
+    {
+        Membre unMem ;
+        unMem=MembreUtil.getClientConnexion(nomUtil,Mdp);
+        if(unMem == null)
+        {
+            
+          message = "Aucun membre trouvé";
+        }
+        else
+        {  
+          message = "Le client a été trouvé!";
+        }
+       // return unMem;
+      // 
+    }
+
 
    
     public void setNom(String nom) {

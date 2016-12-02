@@ -17,7 +17,7 @@ import org.hibernate.Transaction;
 public class restaurantUtil {
      Session session = null;
 
-    public void ajouterClient(String description, String nom,String siteweb, int prix,String img,Typecuisine type )
+    public void ajouterResto(String description, String nom,String siteweb, int prix,String img,Typecuisine type )
     {
             Restaurant unResto = new Restaurant();
             unResto.setDescription(description);
