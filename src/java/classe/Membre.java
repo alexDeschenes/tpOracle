@@ -14,7 +14,7 @@ public class Membre  implements java.io.Serializable {
      private Integer idmembre;
      private Typemembre typemembre;
      private String email;
-     private int mpd;
+     private String mpd;
      private String nomutil;
      private int restoPref;
      private int typecuisinePref;
@@ -26,7 +26,7 @@ public class Membre  implements java.io.Serializable {
     }
 
 	
-    public Membre(Typemembre typemembre, String email, int mpd, String nomutil, int restoPref, int typecuisinePref) {
+    public Membre(Typemembre typemembre, String email, String mpd, String nomutil, int restoPref, int typecuisinePref) {
         this.typemembre = typemembre;
         this.email = email;
         this.mpd = mpd;
@@ -34,7 +34,7 @@ public class Membre  implements java.io.Serializable {
         this.restoPref = restoPref;
         this.typecuisinePref = typecuisinePref;
     }
-    public Membre(Typemembre typemembre, String email, int mpd, String nomutil, int restoPref, int typecuisinePref, Set restaurants, Set commentaires, Set typecuisines) {
+    public Membre(Typemembre typemembre, String email, String mpd, String nomutil, int restoPref, int typecuisinePref, Set restaurants, Set commentaires, Set typecuisines) {
        this.typemembre = typemembre;
        this.email = email;
        this.mpd = mpd;
@@ -67,11 +67,11 @@ public class Membre  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int getMpd() {
+    public String getMpd() {
         return this.mpd;
     }
     
-    public void setMpd(int mpd) {
+    public void setMpd(String mpd) {
         this.mpd = mpd;
     }
     public String getNomutil() {
