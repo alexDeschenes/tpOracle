@@ -129,13 +129,15 @@ public class MembreUtil {
 
     public void ajouterClient(String nomUtil, String mdpConf, String email,String Mdp, Typemembre Type)
     {
-        if(mdpConf == Mdp)
+        if(mdpConf.equals(Mdp) )
         {
-           
             Transaction tx = null;
+             try{  
+           
+            
             this.session = HibernateUtil.getSessionFactory().openSession();
         
-        try{  
+       
             Membre SMembre = new Membre();
             SMembre.setNomutil(nomUtil);
             SMembre.setEmail(email);
@@ -159,6 +161,9 @@ public class MembreUtil {
         }
         
         this.session.close();
+        } else
+        {
+            String test="Test";
         }
         
     }
