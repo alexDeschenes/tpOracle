@@ -12,20 +12,18 @@
 
             <ui:define name="content">
                 
-                <h:form id="CreationCompte">
-     
-    
+                <h:form id="CreationCompte" class="basic-grey">
 
-                    <h:outputLabel>nom d'utilisateur</h:outputLabel>
+                    <h:outputLabel>Nom d'utilisateur</h:outputLabel>
                     <h:inputText id="nomUtil" value="#{ajouterUtilisateur.nom}"></h:inputText>
-                    <h:outputLabel>mot de passe</h:outputLabel>
+                    <h:outputLabel>Mot de passe</h:outputLabel>
                     <h:inputText id="Mdp" value="#{ajouterUtilisateur.mdp}"></h:inputText>
-                    <h:outputLabel>mot de passe</h:outputLabel>
+                    <h:outputLabel>Répéter Mot de passe</h:outputLabel>
                     <h:inputText id="MdpConf" value="#{ajouterUtilisateur.mdpConf}"></h:inputText>
-                    <h:outputLabel>Email</h:outputLabel>
+                    <h:outputLabel>Adresse e-mail</h:outputLabel>
                     <h:inputText id="email" value="#{ajouterUtilisateur.email}"></h:inputText>
-                    <h:commandButton value="Ajouter" action="#{ajouterUtilisateur.ajouterMembre()}"></h:commandButton>
                     <br />
+                    <h:commandButton value="S'inscrire" action="#{ajouterUtilisateur.ajouterMembre()}" class="button"></h:commandButton>
                     <br />
                     <h:outputText value="#{ajouterBean.message}"></h:outputText>
                 </h:form> 
