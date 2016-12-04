@@ -29,15 +29,12 @@ public class gestionRestos {
      private long prixmoyen;
      private String image;
      private String message;
+     private String infoRestoRecherche;
     /**
      * Creates a new instance of ajouterClient
      */
     public gestionRestos() {
         restoUti = new restaurantUtil();
-    }
-    
-    public String getMessage() {
-        return message;
     }
     
     public void ajouterResto()
@@ -46,20 +43,30 @@ public class gestionRestos {
         restoUti.ajouterResto(description, nom, siteweb, idMembre, image, typecuisine);
         message = "Le client a bien été ajouté!";
     }
+    
+    public List<Restaurant> AfficherRestosRecents(){
+        List<Restaurant> lstResto;
+        lstResto = restoUti.RestosRécents();
+        return lstResto;
+    }
+    
     public List<Restaurant> ListResto(int id)
     {
          List<Restaurant> lstResto;
-       
         lstResto =restoUti.listeRestaurant();
-        
         return lstResto;
-       
     }
+    
     public void supprimerResto(int id)
     {
         message = restoUti.supResto(id);
     }
-
+    
+    public List<Restaurant> RechercherRestos(){
+        List<Restaurant> lstResto;
+        lstResto = restoUti.RechercherRestos(infoRestoRecherche);
+        return lstResto;
+    }
    
     public void setNom(String nom) {
         this.nom= nom;
@@ -85,9 +92,27 @@ public class gestionRestos {
      public String getImage() {
        return this.image;
     }
+       public String getMessage() {
+        return message;
+    }
+   
   
      public String  getSiteWeb() {
         return this.siteweb;
+    }
+
+    /**
+     * @return the infoRestoRecherche
+     */
+    public String getInfoRestoRecherche() {
+        return infoRestoRecherche;
+    }
+
+    /**
+     * @param infoRestoRecherche the infoRestoRecherche to set
+     */
+    public void setInfoRestoRecherche(String infoRestoRecherche) {
+        this.infoRestoRecherche = infoRestoRecherche;
     }
 
 }

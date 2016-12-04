@@ -11,6 +11,10 @@ import java.util.Set;
 public class Restaurant  implements java.io.Serializable {
 
 
+    // *** Je l'ai ajouté à la main... ça va planter, mais faut faire en sorte que ça fonctionne.
+    private double noteResto;
+    // ***
+    
      private Integer idresto;
      private Typecuisine typecuisine;
      private String nom;
@@ -116,6 +120,20 @@ public class Restaurant  implements java.io.Serializable {
     
     public void setMembres(Set membres) {
         this.membres = membres;
+    }
+
+    /**
+     * @return the noteResto
+     */
+    public double getNoteResto() {
+        return noteResto;
+    }
+
+    /**
+     * @param noteResto the noteResto to set
+     */
+    public void setNoteResto(double noteResto) {
+        this.noteResto = noteResto;
     }
 
 

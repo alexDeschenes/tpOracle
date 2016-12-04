@@ -6,21 +6,20 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="css/default.css"/>
         <h:outputStylesheet name="css/cssLayout.css"/>
         <title>Rate My Resto!</title>
     </h:head>
 
     <h:body>
         <div id="flexbaniere"><img src="resources/images/banieref.jpg"/></div>
-        <ul id="flexmenu">
-            <h:link class="element" value="Accueil" outcome="index" />
-            <h:link class="element" value="Restaurant" outcome="restaurant" />
-            <h:link class="element" value="Créer un compte" outcome="creationCompte" />
-        </ul>
         <div id="top">
             <ui:insert name="top"></ui:insert>
         </div>
+        <ul id="flexmenu">
+            <h:link class="element" value="Accueil" outcome="index" />
+            <h:link class="element" value="Trouver un restaurant" outcome="recherche" />
+            <h:link class="element" value="Créer un compte" outcome="creationCompte" />
+        </ul>
 
         <div id="content" class="center_content">
             <ui:insert name="content"> </ui:insert>

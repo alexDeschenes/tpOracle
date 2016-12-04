@@ -48,7 +48,7 @@ public class restaurantUtil {
         this.session.close();
         
     }
-   
+    
     
     public List<Restaurant>  listeRestaurant()
     {
@@ -108,16 +108,56 @@ public class restaurantUtil {
           this.session.close();
           return "Restaurant introuvable";
         }
-        
-        
-      
     
     }
     
+    public List<Restaurant> RestosRécents() {
+        List<Restaurant> listeResto = null;
+        
+        Transaction tx = null;
+        this.session = HibernateUtil.getSessionFactory().openSession();
+       
+        try {
+            
+            tx = session.beginTransaction();
+            
+            Query requete = session.createQuery("FROM Restaurant");
+            requete.setFirstResult(0);
+            requete.setMaxResults(3);
+           
+            listeResto = requete.list();
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+        this.session.close();
+        return listeResto;
+    }
+    
+     public List<Restaurant> RechercherRestos(String infos){
+        List<Restaurant> listeResto = null;
+        
+        Transaction tx = null;
+        this.session = HibernateUtil.getSessionFactory().openSession();
+       
+        try {
+            tx = session.beginTransaction();
+            
+            Query requete = session.createQuery("FROM Restaurant where lower(nom) like '%infos%' OR lower(typecuisine) like '%infos%'");
+            // Requête qui cherche un resto selon son nom ou son type de cuisine
+           
+            listeResto = requete.list();
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+        this.session.close();
+        return listeResto;
+    }
     
     
-   
-
     
     
 }
